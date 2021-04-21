@@ -5,17 +5,6 @@
 A template module in the clean architecture style.
 Use the button above "Use this template" to get your Go project off to a clean start.
 
-```
-$ curl --data '{"thing_id":1}' -X POST http://localhost:8080/thing/enable/
-OK
-
-$ curl --data '{"thing_id":1}' -X GET http://localhost:8080/thing/enable/
-Method Not Allowed
-
-$ curl --data '{"thing_id":"fifty five}' -X POST http://localhost:8080/thing/enable/
-Bad Request
-```
-
 ### Motivation
 My aim with this repo is to give myself a template to copy, each time I start a new project in Go.
 
