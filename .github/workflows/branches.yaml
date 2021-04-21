@@ -39,4 +39,5 @@ jobs:
             fi
 
         - name: Go Unit Test
-          run: go test ./... -count=1
+          # we use the test tag here
+          run: go test -tags test ./... -count=1
