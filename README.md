@@ -33,10 +33,19 @@ So take this as a pragmatic approach to Clean Architecture using Go.
 
 ### Notes
 Some notes on the code, or style, or implications.
+I'm not a great Go coder, I'm still learning.
+These notes are aimed at other learners.
+
+Feedback is very much hoped for, to make this template and my Go-skills better.
 
 #### Build Tags
 I love build tags.
 This is a big win when using Go, because it's easy to switch config.
+
+```
+$ go run -tags dev api/server.go
+2021/04/21 22:03:52 webserver.Start(): listening on port 8080
+```
 
 Here is an [example](https://github.com/goscot/cleango/blob/204df73075f69d8ff3fff555f1b739f40c060d3a/config/dev_config.go#L1) that says include this file when -tags is dev or test.
 And in the GitHub action, [here](https://github.com/goscot/cleango/blob/204df73075f69d8ff3fff555f1b739f40c060d3a/.github/workflows/branches.yaml#L43) I run test with that tag.
@@ -70,9 +79,14 @@ Mock come after Interface.
 The [interface](https://github.com/goscot/cleango/blob/main/pkg/usecase/enablething/1_interface.go) for a usecase is imported by the datastore, don't repeat yourself.
 Interfaces in Go make code simpler and more robust, so learn interfaces.
 
+[This](https://github.com/goscot/cleango/blob/2e28d75fb42b6559c34dab7fd86ac69aaacbeb8e/pkg/datastore/interface.go#L12) is where the datastore interface references the usecase interface.
+
 #### Mocks
 Mocks, I love mocks.
 But mocking datastores and methods somehow always seems confusing.
+
+To be clear, I'm mocking the datastore methods.
+When my usecase makes a call to a datastore method, when testing it's my mocks that are injected.
 
 [Here](https://github.com/goscot/cleango/blob/main/pkg/usecase/enablething/5_mock_writer.go) is the mock method, it mocks the call to the datastore method.
 I have conditionals here, to simulate responses from the real method [here](https://github.com/goscot/cleango/blob/971877d70fe85886b42d81e1025da26a6b7978c4/pkg/datastore/redis/thing.go#L7).
