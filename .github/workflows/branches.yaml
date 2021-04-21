@@ -1,7 +1,7 @@
 # pushing to branches runs tests, but doesn't build or push to DockerHub.
 # for the main and develop branches we run on a pull request.
 
-name: branches
+name: ci
 
 on:
   push:
