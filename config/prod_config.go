@@ -1,4 +1,4 @@
-// +build prod
+// +build !dev,!test
 
 // The build tag means this file is included when the prod tag is used.
 //
@@ -11,6 +11,6 @@ package config
 const (
 	API_PORT = "80"
 
-	DB_HOST = "redis"
+	DB_HOST = "localhost"
 	DB_PORT = "6379"
 )
