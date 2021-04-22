@@ -2,14 +2,19 @@
 
 [![CI Status](https://github.com/goscot/cleango/actions/workflows/branches.yaml/badge.svg)](https://github.com/goscot/cleango/actions/workflows/branches.yaml)
 
-A template module in the clean architecture style.
+A template Go module, making it easy to start projects with consistent structure.
 Use the button above "Use this template" to get your Go project off to a clean start.
+
+* Leans on clean architecture
+* Implements tests
+* Build tags
+* CI via GitHub Actions workflow
 
 ### Motivation
 My aim with this repo is to give myself a template to copy, each time I start a new project in Go.
 
 Underlying this I have, over the years, been living with various languages to try and find one that's fast to prototype whilst also being type safe.
-I'm liking Go, and this template is an attempt to create a pattern for structuring Go projects loose-ishly based on Clean Architure.
+I'm liking Go, and this template is an attempt to create a pattern for structuring Go projects loose-ishly based on Clean Architecture.
 
 [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) has lofty aims.
 There aren't many resources out there that lay it out in Go.
@@ -93,3 +98,20 @@ Tests are not for 'production code', they are for all code.
 Tests make your development quicker overall.
 For years I thought tests were a hassle getting in the way of writing code.
 If you're still thinking that, read [The Tortoise and the Hare](https://en.wikipedia.org/wiki/The_Tortoise_and_the_Hare).
+
+#### File Numbering
+I use file name numbering for files that are part of the templating pattern.
+This is purely to make scanning dirs and finding what you expect to always be there much quicker.
+
+For example:
+```
+$ ls -l pkg/usecase/enablething 
+total 56
+-rw-r--r--  1 thisdougb  staff  209 21 Apr 20:13 1_interface.go
+-rw-r--r--  1 thisdougb  staff  181 21 Apr 20:14 2_service.go
+-rw-r--r--  1 thisdougb  staff  179 21 Apr 19:43 3_mock.go
+-rw-r--r--  1 thisdougb  staff   77 21 Apr 19:43 4_mock_reader.go
+-rw-r--r--  1 thisdougb  staff  378 21 Apr 20:17 5_mock_writer.go
+-rw-r--r--  1 thisdougb  staff  433 21 Apr 20:57 main.go
+-rw-r--r--  1 thisdougb  staff  899 21 Apr 20:15 main_test.go
+```
