@@ -1,14 +1,6 @@
-# pushing to branches runs tests, but doesn't build or push to DockerHub.
-# for the main and develop branches we run on a pull request.
-
-name: ci
+name: pr
 
 on:
-  push:
-      branches:
-          - '*'
-          - '!main'
-          - '!develop'
   pull_request:
       branches:
           - 'main'
@@ -16,7 +8,7 @@ on:
 
 jobs:
     build:
-        name: branch build
+        name: tests build
         runs-on: ubuntu-latest
         if: ${{ !contains(github.event.head_commit.message, '[ci skip]') }}
 
@@ -39,5 +31,4 @@ jobs:
             fi
 
         - name: Go Unit Test
-          # we use the test tag here
           run: go test -tags test ./... -count=1

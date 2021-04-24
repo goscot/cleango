@@ -1,6 +1,6 @@
 # cleango
 
-[![CI Status](https://github.com/goscot/cleango/actions/workflows/branches.yaml/badge.svg)](https://github.com/goscot/cleango/actions/workflows/branches.yaml)
+[![release](https://github.com/goscot/cleango/actions/workflows/release.yaml/badge.svg)](https://github.com/goscot/cleango/actions/workflows/release.yaml)
 
 A template Go module, making it easy to start projects with consistent structure.
 Use the button above "Use this template" to get your Go project off to a clean start.
