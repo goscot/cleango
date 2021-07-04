@@ -1,11 +1,10 @@
-name: pr
+name: pullrequest
 
 on:
   pull_request:
       branches:
           - 'main'
           - 'develop'
-
 jobs:
     build:
         name: tests build
