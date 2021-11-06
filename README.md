@@ -32,6 +32,17 @@ These notes are aimed at other learners.
 
 Feedback is very much hoped for, to make this template and my Go-skills better.
 
+#### Reset Paths
+When you template this repo it will contain 'goscot/cleango' in the pkg paths.
+Here's how to reset those paths, using sed on Mac OS (at least), after you've cloned your new repo.
+
+Substitute your GitHub name for mygithubname, and your repo name for myrepo:
+```
+$ git clone git@github.com:thisdougb/ilka.git
+$ find ilka \( -type d -name .git -prune \) -o -type f -print0 | xargs -0 sed -i '' -e 's/goscot/mygithubname/g'
+$ find ilka \( -type d -name .git -prune \) -o -type f -print0 | xargs -0 sed -i '' -e 's/cleango/myrepo/g'
+```
+
 #### Build Tags
 I love build tags.
 This is a big win when using Go, because it's easy to switch config.
@@ -105,7 +116,7 @@ This is purely to make scanning dirs and finding what you expect to always be th
 
 For example:
 ```
-$ ls -l pkg/usecase/enablething 
+$ ls -l pkg/usecase/enablething
 total 56
 -rw-r--r--  1 thisdougb  staff  209 21 Apr 20:13 1_interface.go
 -rw-r--r--  1 thisdougb  staff  181 21 Apr 20:14 2_service.go
